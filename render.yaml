@@ -1,0 +1,13 @@
+# Render.com — автоматическое развёртывание Lowkey
+services:
+  - type: web
+    name: lowkey
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
